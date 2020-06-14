@@ -1,0 +1,18 @@
+DOS Header            ;-- entry0:
+            ;-- eip:
+            0x00401650      81ec54090000   sub esp, 0x954
+            0x00401656      53             push ebx
+            0x00401657      55             push ebp
+            0x00401658      56             push esi
+            0x00401659      57             push edi
+            0x0040165a      8d8c247c0400.  lea ecx, [esp + 0x47c]
+            0x00401661      33ff           xor edi, edi
+            0x00401663      c74424109000.  mov dword [esp + 0x10], 0x90 ; [0x90:4]=-1 ; 144
+            0x0040166b      e8d0fcffff     call 0x401340
+            0x00401670      8b8424dc0100.  mov eax, dword [esp + 0x1dc]
+            0x00401677      8b8c24ec0100.  mov ecx, dword [esp + 0x1ec]
+            0x0040167e      8bb424100200.  mov esi, dword [esp + 0x210]
+            0x00401685      8b94245c0200.  mov edx, dword [esp + 0x25c]
+            0x0040168c      d3e8           shr eax, cl
+            0x0040168e      8b             invalid
+            0x0040168f      8c             invalid
