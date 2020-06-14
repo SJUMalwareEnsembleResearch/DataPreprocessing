@@ -1,20 +1,2 @@
-DOS Header            0x00000000      50             push rax
-            0x00000001      4b030414       add rax, qword [r12 + r10]
-            0x00000005      0000           add byte [rax], al
-            0x00000007      0008           add byte [rax], cl
-            0x00000009      0098303d3fae   add byte [rax - 0x51c0c2d0], bl
-            0x0000000f      d4             invalid
-            0x00000010      65839d020000.  sbb dword gs:[rbp + 0x67000002], 8
-            0x00000018      0000           add byte [rax], al
-            0x0000001a      0500000068     add eax, 0x68000000
-            0x0000001f      6f             outsd dx, dword [rsi]
-       ┌──< 0x00000020      7374           jae 0x96
-       │┌─< 0x00000022      739d           jae 0xffffffffffffffc1
-       ││   0x00000024      54             push rsp
-       ││   0x00000025      4d6f           outsd dx, dword [rsi]
-       ││   0x00000027      db             invalid
-       ││   0x00000028      300c3daf40ff.  xor byte [rdi + 0x3ff40af], cl
-       ││   0x0000002f      811eda02ab66   sbb dword [rsi], 0x66ab02da
-       ││   0x00000035      a7             cmpsd dword [rsi], dword ptr [rdi]
-       ││   0x00000036      4db3f4         mov r11b, 0xf4
-       ││   0x00000039      320cdd86edb0.  xor cl, byte [rbx*8 - 0x524f127a]
+DOS Header
+504b030414000000080098303d3faed465839d0200006708000005000000686f7374739d544d6fdb300c3daf40ff03811eda02ab66a74db3f4320cdd86edb0ad

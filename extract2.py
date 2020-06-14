@@ -10,7 +10,7 @@ def iterate(foldername):
 ##any command that runs in the r2 shell can be pased to the cmd method
 def extract_write(filename):
     r = r2pipe.open(filename)
-    s = r.cmd("pD 64")
+    s = r.cmd("p8 64")
     
     ##creating new text file
     slash = filename.rfind("/")
@@ -19,14 +19,17 @@ def extract_write(filename):
     print(txt_file)
     
     f = open(os.path.join(directory, txt_file), "w+")
-    f.write("DOS Header")
-    f.write(s)
+    f.write("DOS Header\n")
+    f.write(s,"\n")
+    f.write("PE Header\n")
+
+
     f.close()
     return(str(directory + txt_file))
 
 
 if __name__ == "__main__":
-    s = (extract_write("/Users/gavinwong/Desktop/v001/VirusShare_0a2e87dcc632209c21f66d0128042302"))
+    s = (extract_write("/Users/gavinwong/Desktop/v001/VirusShare_fffb1996a5b7c4c716931af2842712e3"))
     print(s)
     
     
