@@ -20,8 +20,16 @@ def extract_write(filename):
     
     f = open(os.path.join(directory, txt_file), "w+")
     f.write("DOS Header\n")
-    f.write(s,"\n")
+    f.write(s+"\n")
     f.write("PE Header\n")
+
+    byteSpecfied = r.cmd("px 1 @ 0x3c")
+    hexStart = byteSpecfied.rfind("0x")
+    print(byteSpecfied)
+    byteSpecfied = byteSpecfied[hexStart + 12:]
+    pe = r.cmd("p8 264 @0x"+byteSpecfied)
+    f.write(pe)
+    print(byteSpecfied)
 
 
     f.close()
@@ -30,7 +38,6 @@ def extract_write(filename):
 
 if __name__ == "__main__":
     s = (extract_write("/Users/gavinwong/Desktop/v001/VirusShare_fffb1996a5b7c4c716931af2842712e3"))
-    print(s)
     
     
     
