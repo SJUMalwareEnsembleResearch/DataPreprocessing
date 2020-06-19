@@ -23,6 +23,8 @@ def iterateDataset(filename):
 def extract_write(filename):
     try:
         r = r2pipe.open(filename)
+        x = r2pipe.cmd("ie")
+        print(x)
         s = r.cmd("p8 64")
     
         ##creating new text file
@@ -54,8 +56,8 @@ def extract_write(filename):
 
 
 if __name__ == "__main__":
-    #s = (extract_write("/Users/gavinwong/Documents/dataset/v001-part1/VirusShare_0a0a6e36b3fd45302c245381364dc8e4"))
-    iterateDataset(5)
+    s = (extract_write("/Users/gavinwong/Documents/dataset/v001-part2/VirusShare_0a0a6e36b3fd45302c245381364dc8e4"))
+    # iterateDataset(5)
     #iterate("adload_files.txt")
     
     
