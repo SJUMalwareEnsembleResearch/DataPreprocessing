@@ -3,14 +3,14 @@ import subprocess
 
 # os.system("hexdump -n64 VirusShare_fff8dcd61fb36a828dda906c9ecf2263")
 # print()
-DOS = str(subprocess.check_output('''hexdump -n64 -e '16/1 "%02x " "\n"' VirusShare_fffb1996a5b7c4c716931af2842712e3''', shell=True))
-byte60 = str(subprocess.check_output("hexdump -n1 -s60 VirusShare_fffb1996a5b7c4c716931af2842712e3", shell=True))
+DOS = str(subprocess.check_output('''hexdump -n64 -e '16/1 "%02x " "\n"' /Users/gavinwong/Documents/dataset/v001-part5/VirusShare_fffb1996a5b7c4c716931af2842712e3''', shell=True))
+byte60 = str(subprocess.check_output("hexdump -n1 -s60 /Users/gavinwong/Documents/dataset/v001-part5/VirusShare_fffb1996a5b7c4c716931af2842712e3", shell=True))
 x = byte60.find(" ")
 byte60 = byte60[x + 1: x + 3]
 
 
 peStart = int(byte60, 16)
-PE = str(subprocess.check_output('''hexdump -n264 -s''' + str(peStart) +''' -e '16/1 "%02x " "\n"' VirusShare_fffb1996a5b7c4c716931af2842712e3''', shell=True))
+PE = str(subprocess.check_output('''hexdump -n264 -s''' + str(peStart) +''' -e '16/1 "%02x " "\n"' /Users/gavinwong/Documents/dataset/v001-part5/VirusShare_fffb1996a5b7c4c716931af2842712e3''', shell=True))
 DOS = DOS.replace(" ", "")
 DOS = DOS.replace("\\n", "")
 DOS = DOS.replace("*", "")
