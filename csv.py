@@ -10,5 +10,5 @@ filename = "opcodes.csv"
 dataset = []
 for ()
 
-with open (filename, 'w') as csvfile:
+with open (filename, 'rw') as csvfile:
 
