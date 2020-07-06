@@ -13,7 +13,7 @@ with open("all_data2.csv", "r") as readfile:
     previousRow = next(reader)
     list.append(previousRow)
     for row in reader:
-        if row[1:] != previousRow[1:] and notCorrupted(row) and moreThan1000(row):
+        if row[1:] != previousRow[1:] and notCorrupted(row) and moreThan1000(row) and moreThan100Files(row):
             list.append(row)
         previousRow = row
 
@@ -46,7 +46,7 @@ def checkFilesPerFamily():
     dictionary = {'ADLOAD' : 0, 'AGENT' : 0, 'ALLAPLE_A' : 0, 'BHO' : 0, 'BIFROSE' : 0, 'CEEINJECT' : 0, 'CYCBOT_G' : 0, 'FAKEREAN' : 0,
                   'HOTBAR' : 0, 'INJECTOR' : 0, 'LOLYDA_BF' : 0, 'ONLINEGAMES' : 0, 'RENOS' : 0, 'RIMECUD_A' : 0, 'SMALL' : 0, 'STARTPAGE' : 0, 
                   'TOGA_RFN' : 0, 'VB' : 0, 'VBINJECT' : 0, 'VOBFUS' : 0 , 'VUNDO' : 0, 'WINTRIM_BX' : 0, 'WINWEBSEC' : 0, 'ZBOT' : 0, 'Family' : 0}
-    with open('all_data2.csv', 'r') as readfile:
+    with open('all_data2_new.csv', 'r') as readfile:
         reader = csv.reader(readfile)
         next(reader)
         for row in reader:
@@ -56,6 +56,16 @@ def checkFilesPerFamily():
 
 def moreThan1000(row):
     return "-1" not in row 
+
+
+row = [1, "STARTPAGE", 100]
+print(moreThan100Files(row))
+
+def moreThan100Files(row):
+    c = row[1]
+    print(c)
+    return not (c == "WINTRIM_BX" or c == "LOLYDA_BF" or c == "STARTPAGE")
+    
 
                 
     
